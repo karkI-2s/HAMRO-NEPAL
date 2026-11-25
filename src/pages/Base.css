@@ -1,0 +1,136 @@
+/* Reset and full height layout */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  perspective: 1000px; /* 3D perspective */
+}
+
+/* Main content grows to push footer down */
+.main-content {
+  flex: 1;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+/* Footer Styles */
+.footer {
+  background-color: #111;
+  color: #f5f5f5;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px 10px 30px 10px;
+  transform: rotateX(2deg) translateZ(5px); /* subtle 3D tilt */
+  box-shadow: 0 -5px 30px rgba(0,0,0,0.5); /* depth shadow */
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+  width: 100%;
+  margin: 0;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transform: translateZ(10px); /* logo pops out */
+}
+
+.footer-logo .logo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5); /* subtle depth */
+  border-radius: 8px;
+}
+
+.footer-logo .company-name {
+  font-size: 22px;
+  font-weight: bold;
+  color: #ffcc00;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* 3D text effect */
+}
+
+.footer-links, .footer-contact {
+  flex: 1;
+  min-width: 180px;
+  transform: translateZ(5px); /* slight pop effect */
+}
+
+.footer-links h4,
+.footer-contact h4 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #ffcc00;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.6); /* subtle 3D text */
+}
+
+.footer-links a {
+  display: block;
+  color: #f5f5f5;
+  text-decoration: none;
+  margin-bottom: 8px;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.footer-links a:hover {
+  color: #ffcc00;
+  transform: translateZ(5px) scale(1.05); /* hover pop effect */
+}
+
+.footer-contact p {
+  margin: 5px 0;
+  font-size: 15px;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  border-top: 1px solid #333;
+  padding-top: 15px;
+  font-size: 14px;
+  color: #aaa;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .footer-links, .footer-contact {
+    min-width: 100%;
+  }
+
+  .footer-logo {
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 400px) {
+  .footer {
+    padding: 40px 15px 15px 15px;
+  }
+
+  .footer-logo .company-name {
+    font-size: 20px;
+  }
+
+  .footer-links h4,
+  .footer-contact h4 {
+    font-size: 16px;
+  }
+}
